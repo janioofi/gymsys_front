@@ -1,0 +1,59 @@
+<mat-drawer-container class="container" autosize>
+
+	<mat-drawer #drawer class="sidenav" mode="side">
+	  <mat-nav-list class="nav-list">
+
+      <a mat-list-item routerLink="acessos">
+        <i class="material-icons">fitness_center</i>
+        Acessos
+      </a>
+
+      <a mat-list-item routerLink="pagamentos">
+        <i class="material-icons">payments</i>
+        Pagamentos
+      </a>
+
+      <a mat-list-item routerLink="clientes">
+        <i class="material-icons">groups</i>
+        Clientes
+      </a>
+
+      <a mat-list-item routerLink="planos">
+        <i class="material-icons">redeem</i>
+        Planos
+      </a>
+
+      <a mat-list-item routerLink="profissionais">
+        <i class="material-icons">manage_accounts</i>
+        Profissionais
+      </a>
+
+      <a mat-list-item routerLink="usuarios">
+        <i class="material-icons">account_circle</i>
+        Usuários
+      </a>
+
+      <a mat-list-item href="https://github.com/janioofi/gymsys_front" target="_blank">
+        <i class="material-icons">code</i>
+        GitHub
+      </a>
+
+      <a mat-list-item (click)="logout()">
+        <i class="material-icons">logout</i>
+        Logout
+      </a>
+
+      <a mat-list-item routerLink="usuarios/id">
+        <i class="material-icons">person</i>
+        Usuário Logado
+      </a>
+	  </mat-nav-list>
+	</mat-drawer>
+
+	<div class="sidenav-content">
+		<button class="menu mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+			<mat-icon>menu</mat-icon>
+		</button>
+		<router-outlet></router-outlet>
+	</div>
+</mat-drawer-container>
