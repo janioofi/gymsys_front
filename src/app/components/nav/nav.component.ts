@@ -4,6 +4,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
@@ -21,14 +23,15 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 })
 export class NavComponent implements OnInit{
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private authService: AuthService, private toast: ToastrService){}
 
   ngOnInit(): void{
-    this.router.navigate(['acessos'])
   }
 
   logout(){
+    this.router.navigate(['login'])
+    this.authService.logout();
+    this.toast.info("Logout realizado com sucesso", "Logout", {timeOut: 10000})
   }
-
   showFiller = false;
 }

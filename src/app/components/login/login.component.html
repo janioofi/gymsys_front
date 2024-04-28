@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container">
+  <form class="form mat-elevation-z8">
+    <h1>Sistema de gerenciamento</h1>
+		<mat-form-field appearance="outline" class="full-width">
+		  <mat-label>Usuario</mat-label>
+		  <input
+			[formControl]="usuario"
+			required=""
+			[(ngModel)]="login.usuario"
+			name="usuario"
+			matInput
+			placeholder="Ex. fulano">
+		</mat-form-field>
+
+		<mat-form-field appearance="outline" class="full-width">
+			<mat-label>Senha</mat-label>
+			<input
+				[formControl]="senha"
+				required
+				[(ngModel)]="login.senha"
+				name="senha"
+				type="password"
+				matInput
+				placeholder="Ex. 12345" >
+		  </mat-form-field>
+		  <button (click)="logar()" [disabled]="!validaCampos()" class="full-width mat-elevation-z4" mat-stroked-button color="accent">Login</button>
+	  </form>
+</div>
