@@ -1,0 +1,49 @@
+.container{
+	width: 90%;
+	margin: auto;
+}
+
+table {
+	width: 100%;
+}
+
+mat-form-field{
+	width: 100%;
+}
+
+button {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+h1{
+	width: 100%;
+	text-align: center;
+}
+
+.edit{
+	color: rgb(3, 91, 255)
+}
+
+.delete{
+	color: red;
+}
+
+.periodo{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.periodo mat-form-field{
+  width: 33%;
+}
+
+.periodo button{
+  height: 3rem;
+  width: 20%;
+}
+
+.tabela{
+  margin-bottom: 1rem;
+}
