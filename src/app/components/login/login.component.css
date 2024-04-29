@@ -1,4 +1,6 @@
-
+*{
+  color: white;
+}
 
 .container{
 	height: 100%;
@@ -19,6 +21,7 @@
 h1{
 	text-align: center;
 	width: 100%;
+  color: white;
 }
 
 .full-width{
