@@ -17,4 +17,8 @@ export class ProfissionalService {
     return this.http.get<Profissional[]>(this.url);
   }
 
+  create(profissional: Profissional){
+    return this.http.post(this.url, profissional);
+  }
+
 }
