@@ -20,4 +20,15 @@ export class UsuarioService {
     return this.http.post(`${ API_CONFIG.baseUrl }/register`, usuario);
   }
 
+  findById(id: any): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.url}/${id}`);
+  }
+
+  update(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${ this.url }/${usuario.id_usuario}`, usuario);
+  }
+
+  delete(id: any): Observable<Usuario>{
+    return this.http.delete<Usuario>(`${ this.url }/${id}`);
+  }
 }

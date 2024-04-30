@@ -1,6 +1,7 @@
 .container{
 	width: 90%;
 	margin: auto;
+  color: white;
 }
 
 table {
@@ -17,8 +18,10 @@ button {
 }
 
 h1{
-	width: 100%;
 	text-align: center;
+	width: 100%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
 .edit{
@@ -28,3 +31,4 @@ h1{
 .delete{
 	color: rgb(138, 43, 43);
 }
+

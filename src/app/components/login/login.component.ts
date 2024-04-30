@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -54,9 +55,17 @@ export class LoginComponent implements OnInit {
       let token = JSON.parse(JSON.stringify(res)).token
       this.service.successFullLogin(token)
       this.router.navigate(['']);
-    }, () => {
-      this.toastr.error('Usuário e/ou senha inválidoss.');
-    });;
+    }, ((err) => {
+      console.log(err.status);
+      if (err.status === 403) {
+        this.toastr.error('Acesso expirado ou login incorreto');
+        this.service.logout();
+        this.router.navigate(['login']);
+      }else{
+        this.toastr.error("Usuário e/ou senha inválidos")
+      }
+     })
+    );
   }
 
   validaCampos(): boolean{

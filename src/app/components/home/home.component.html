@@ -2,12 +2,12 @@
 
 	<h1>Registros</h1>
   <div class="filtros">
-    <mat-form-field color="accent">
+    <mat-form-field color="primary">
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Jonas" #input>
       <mat-label>Busca</mat-label>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="acessos" color="accent">
+    <mat-form-field appearance="outline" class="acessos" color="primary">
       <mat-label>Filtro</mat-label>
       <mat-select>
         <mat-option (click)="acessosDoDia()" value="dia">Acessos do dia</mat-option>
@@ -17,17 +17,17 @@
     </mat-form-field>
 
     <div class="periodo" *ngIf="option">
-      <mat-form-field color="accent">
+      <mat-form-field color="primary">
         <mat-label>Data Incío</mat-label>
         <input [(ngModel)]="data_inicio" matInput type="date" name="data_inicio" id="data_inicio">
       </mat-form-field>
 
-      <mat-form-field color="accent">
+      <mat-form-field color="primary">
         <mat-label>Data Final</mat-label>
         <input [(ngModel)]="data_final" matInput type="date" name="data_final" id="data_final">
       </mat-form-field>
 
-      <button [disabled]="" class="fullWidth mat-elevation-z4" (click)="acessosPorPeriodo()" mat-flat-button color="accent">Buscar</button>
+      <button [disabled]="" class="fullWidth mat-elevation-z4" (click)="acessosPorPeriodo()" mat-raised-button color="primary">Buscar</button>
     </div>
   </div>
 
