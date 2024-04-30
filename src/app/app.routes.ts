@@ -9,6 +9,7 @@ import { UsuarioDeleteComponent } from './components/usuario/usuario-delete/usua
 import { UsuarioUpdateComponent } from './components/usuario/usuario-update/usuario-update.component';
 import { ProfissionalListComponent } from './components/profissional/profissional-list/profissional-list.component';
 import { ProfissionalCreateComponent } from './components/profissional/profissional-create/profissional-create.component';
+import { ProfissionalDeleteComponent } from './components/profissional/profissional-delete/profissional-delete.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,7 +23,8 @@ export const routes: Routes = [
     {path: 'usuarios/update/:id', component: UsuarioUpdateComponent},
 
     {path:'profissionais', component: ProfissionalListComponent},
-    {path:'profissionais/create', component: ProfissionalCreateComponent}
+    {path:'profissionais/create', component: ProfissionalCreateComponent},
+    {path:'profissionais/delete/:id', component: ProfissionalDeleteComponent},
 
   ]}
 ]

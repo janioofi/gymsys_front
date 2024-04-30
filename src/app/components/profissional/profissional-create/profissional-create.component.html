@@ -49,11 +49,13 @@
       <mat-form-field class="fullWidth" color="primary" appearance="outline">
         <mat-label>Data Admissão</mat-label>
         <input [(ngModel)]="profissional.data_admissao" [formControl]="data_admissao" matInput type="date" name="data_admissao" id="data_admissao">
+        <mat-icon matSuffix>calendar_month</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="fullWidth" color="primary" appearance="outline">
         <mat-label>Data Nascimento</mat-label>
         <input [(ngModel)]="profissional.data_nascimento" [formControl]="data_nascimento" matInput type="date" name="data_nascimento" id="data_nascimento">
+        <mat-icon matSuffix>calendar_month</mat-icon>
       </mat-form-field>
 		</div>
     <mat-form-field class="full-width" appearance="outline">
@@ -61,6 +63,7 @@
       <mat-select [(ngModel)]="profissional.usuario" name="usuario" [formControl]="usuario" required>
         <mat-option *ngFor="let u of usuarios" value="{{u.id_usuario}}">{{ u.usuario }}</mat-option>
       </mat-select>
+      <mat-icon matSuffix>account_circle</mat-icon>
     </mat-form-field>
 	</form>
 	<div class="button">
