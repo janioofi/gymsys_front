@@ -3,7 +3,7 @@
 	<h1>Listando Usuários</h1>
 	<button routerLink="create" class="mat-elevation-z4" mat-raised-button color="primary">Novo Usuário</button>
 
-	<mat-form-field color="primary">
+	<mat-form-field appearance="outline" color="primary">
 		<mat-label>Procurar</mat-label>
 		<input matInput (keyup)="applyFilter($event)" placeholder="Ex. user123" #input>
 	</mat-form-field>

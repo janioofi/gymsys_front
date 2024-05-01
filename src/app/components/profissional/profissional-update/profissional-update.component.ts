@@ -48,7 +48,7 @@ export class ProfissionalUpdateComponent {
     usuario: "",
     id_usuario: "",
   }
-  
+
   usuarios: Usuario[] = [];
 
   constructor(
@@ -113,4 +113,5 @@ export class ProfissionalUpdateComponent {
   validaCampos(): boolean {
     return (this.usuario.valid && this.nome.valid && this.sobrenome.valid && this.cpf.valid && this.email.valid && this.data_nascimento.valid);
   }
+
 }
