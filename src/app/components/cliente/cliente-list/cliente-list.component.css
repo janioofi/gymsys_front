@@ -1,0 +1,44 @@
+.container{
+	width: 90%;
+	margin: auto;
+  color: white;
+}
+
+table {
+	margin: auto;
+}
+
+mat-form-field{
+	width: 100%;
+	margin: auto;
+}
+
+button {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+h1{
+	text-align: center;
+	width: 100%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;;
+}
+
+td button{
+  width: 40%;
+  margin: .1rem;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+button{
+  font-size: 0.7rem;
+}

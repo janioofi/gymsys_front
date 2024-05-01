@@ -1,8 +1,18 @@
 .container{
-	width: 95vh;
+	width: 90%;
 	margin: auto;
   color: white;
 }
+
+table {
+	margin: auto;
+}
+
+mat-form-field{
+	width: 100%;
+	margin: auto;
+}
+
 
 th {
   text-align: center;
@@ -11,14 +21,6 @@ th {
 
 td{
   text-align: center;
-}
-
-table {
-	width: 100%;
-}
-
-mat-form-field{
-	width: 100%;
 }
 
 button {

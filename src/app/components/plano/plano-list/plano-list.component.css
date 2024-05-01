@@ -1,5 +1,5 @@
 .container{
-	width: 95vh;
+	width: 90%;
 	margin: auto;
   color: white;
 }
@@ -9,7 +9,7 @@ table {
 }
 
 mat-form-field{
-	width: 95vh;
+	width: 100%;
 	margin: auto;
 }
 
