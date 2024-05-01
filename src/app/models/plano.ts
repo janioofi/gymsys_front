@@ -3,5 +3,5 @@ export interface Plano{
   descricao: String,
   vigencia?: any,
   preco?: any,
-  quantidadeMeses: number
+  quantidadeMeses?: any
 }

@@ -12,6 +12,7 @@ import { ProfissionalCreateComponent } from './components/profissional/profissio
 import { ProfissionalDeleteComponent } from './components/profissional/profissional-delete/profissional-delete.component';
 import { ProfissionalUpdateComponent } from './components/profissional/profissional-update/profissional-update.component';
 import { PlanoListComponent } from './components/plano/plano-list/plano-list.component';
+import { PlanoCreateComponent } from './components/plano/plano-create/plano-create.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -29,7 +30,8 @@ export const routes: Routes = [
     {path:'profissionais/delete/:id', component: ProfissionalDeleteComponent},
     {path:'profissionais/update/:id', component: ProfissionalUpdateComponent},
 
-    {path: 'planos', component: PlanoListComponent}
+    {path: 'planos', component: PlanoListComponent},
+    {path: 'planos/create', component: PlanoCreateComponent},
 
   ]}
 ]
