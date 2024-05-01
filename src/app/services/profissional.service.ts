@@ -21,4 +21,16 @@ export class ProfissionalService {
     return this.http.post(this.url, profissional);
   }
 
+  findById(id: any): Observable<Profissional>{
+    return this.http.get<Profissional>(`${this.url}/${id}`);
+  }
+
+  update(profissional: Profissional): Observable<Profissional>{
+    return this.http.put<Profissional>(`${ this.url }/${profissional.id_profissional}`, profissional);
+  }
+
+  delete(id: any): Observable<Profissional>{
+    return this.http.delete<Profissional>(`${ this.url }/${id}`);
+  }
+
 }

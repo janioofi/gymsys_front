@@ -1,4 +1,3 @@
-
 .container{
 	width: 90%;
 	margin: auto;
@@ -21,15 +20,12 @@ h1{
 	text-align: center;
 	width: 100%;
   font-weight: bold;
-  color: white;
+  color: black;
+  font-size: 1.5rem;;
 }
 
-.edit{
-	color: rgb(3, 91, 255)
-}
-
-.delete{
-	color: red;
+mat-option {
+  font-size: .7rem;
 }
 
 .periodo{
@@ -50,3 +46,13 @@ h1{
 .tabela{
   margin-bottom: 1rem;
 }
+
+th {
+  text-align: center;
+  width: 20%;
+}
+
+td{
+  text-align: center;
+}
+

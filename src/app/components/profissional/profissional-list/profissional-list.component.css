@@ -1,15 +1,16 @@
 .container{
-	width: 90%;
+	width: 95vh;
 	margin: auto;
   color: white;
 }
 
 table {
-	width: 100%;
+	margin: auto;
 }
 
 mat-form-field{
-	width: 100%;
+	width: 95vh;
+	margin: auto;
 }
 
 button {
@@ -22,13 +23,22 @@ h1{
 	width: 100%;
   font-weight: bold;
   color: rgb(0, 0, 0);
+  font-size: 1.5rem;;
 }
 
-.edit{
-	color: rgb(140, 163, 204)
+td button{
+  width: 40%;
+  margin: .1rem;
 }
 
-.delete{
-	color: rgb(138, 43, 43);
+td {
+  text-align: center;
 }
 
+th {
+  text-align: center;
+}
+
+button{
+  font-size: 0.7rem;
+}

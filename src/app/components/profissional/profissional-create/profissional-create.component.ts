@@ -59,7 +59,7 @@ export class ProfissionalCreateComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.findAllClientes();
+    this.findAllUsuarios();
   }
 
   nome : FormControl = new FormControl(null, [Validators.required]);
@@ -89,7 +89,7 @@ export class ProfissionalCreateComponent implements OnInit{
     );
   }
 
-  findAllClientes(){
+  findAllUsuarios(){
     this.usuarioService.findAll().pipe().subscribe(response => {
       this.usuarios = response;
     });

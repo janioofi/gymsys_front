@@ -1,0 +1,44 @@
+.container{
+	width: 55%;
+	margin: auto;
+	padding: 1rem;
+	border-radius: 1rem;
+}
+
+.full-width{
+	width: 100%;
+}
+
+h1, img{
+	text-align: center;
+  width: 100%;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+img{
+	height: 15rem;
+}
+
+.agrupado{
+	display: flex;
+	justify-content: space-between;
+}
+
+.agrupado mat-form-field{
+	width: 49%;
+}
+
+.descricao{
+	min-height: 6rem;
+	max-height: 10rem;
+}
+
+.button{
+	display: flex;
+	justify-content: space-between;
+}
+
+.button button{
+	width: 49%;
+}

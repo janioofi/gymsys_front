@@ -27,7 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   styleUrl: './usuario-delete.component.css'
 })
 export class UsuarioDeleteComponent implements OnInit {
-  
+
   usuarioModel : Usuario = {
     id_usuario: "",
     usuario: "",
@@ -51,7 +51,6 @@ export class UsuarioDeleteComponent implements OnInit {
     this.service.findById(this.usuarioModel.id_usuario).subscribe(response => {
       response.perfis = [];
       this.usuarioModel = response;
-      console.log(response)
     })
   }
 

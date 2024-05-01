@@ -34,7 +34,7 @@ export class UsuarioListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['id_usuario', 'usuario', 'acoes'];
+  displayedColumns: string[] = ['id_usuario', 'usuario',  'perfis', 'acoes'];
   dataSource = new MatTableDataSource<Usuario>(this.ELEMENT_DATA);
 
   applyFilter(event: Event) {

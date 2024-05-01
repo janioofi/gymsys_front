@@ -1,7 +1,16 @@
 .container{
-	width: 90%;
+	width: 95vh;
 	margin: auto;
   color: white;
+}
+
+th {
+  text-align: center;
+  width: 20%;
+}
+
+td{
+  text-align: center;
 }
 
 table {
@@ -22,13 +31,10 @@ h1{
 	width: 100%;
   font-weight: bold;
   color: rgb(0, 0, 0);
+  font-size: 1.5rem;
 }
 
-.edit{
-	color: rgb(140, 163, 204)
+td button{
+  width: 20%;
+  margin: .1rem;
 }
-
-.delete{
-	color: rgb(138, 43, 43);
-}
-

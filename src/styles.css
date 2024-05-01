@@ -2,5 +2,6 @@
 @import '../node_modules/ngx-toastr/toastr.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
+*{font-size: 0.8rem;}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
