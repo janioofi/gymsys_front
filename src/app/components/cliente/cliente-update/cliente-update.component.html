@@ -1,17 +1,17 @@
 <div class="container mat-elevation-z8">
-	<h1 class="full-width">Criando profissional</h1>
+	<h1 class="full-width">Atualizando Cliente</h1>
 
 	<form class="form">
 		<div class="agrupado">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Nome</mat-label>
-        <input [(ngModel)]="profissional.nome" name="nome" [formControl]="nome" required matInput placeholder="Ex. Jorge">
+        <input [(ngModel)]="cliente.nome" name="nome" [formControl]="nome" required matInput placeholder="Ex. Jorge">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Sobrenome</mat-label>
-        <input [(ngModel)]="profissional.sobrenome" name="nome" [formControl]="sobrenome" required matInput placeholder="Ex. Silva">
+        <input [(ngModel)]="cliente.sobrenome" name="sobrenome" [formControl]="sobrenome" required matInput placeholder="Ex. Silva">
         <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 		</div>
@@ -21,7 +21,7 @@
         <mat-label>E-mail</mat-label>
         <input
             [formControl]="email"
-            [(ngModel)]="profissional.email"
+            [(ngModel)]="cliente.email"
             name="email"
             required="true"
             matInput
@@ -33,7 +33,7 @@
       <mat-form-field class="fullWidth" appearance="outline">
         <mat-label>CPF</mat-label>
         <input
-            [(ngModel)]="profissional.cpf"
+            [(ngModel)]="cliente.cpf"
             name="nome"
             mask="000.000.000-00"
             [formControl]="cpf"
@@ -46,28 +46,30 @@
 		</div>
 
     <div class="agrupado">
-      <mat-form-field class="fullWidth" color="primary" appearance="outline">
-        <mat-label>Data Admissão</mat-label>
-        <input [(ngModel)]="profissional.data_admissao" [formControl]="data_admissao" matInput type="date" name="data_admissao" id="data_admissao">
-        <mat-icon matSuffix>calendar_month</mat-icon>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Apelido</mat-label>
+        <input [(ngModel)]="cliente.apelido" name="apelido" matInput placeholder="Ex. Jorge">
+        <mat-icon matSuffix>person</mat-icon>
       </mat-form-field>
 
       <mat-form-field class="fullWidth" color="primary" appearance="outline">
         <mat-label>Data Nascimento</mat-label>
-        <input [(ngModel)]="profissional.data_nascimento" [formControl]="data_nascimento" matInput type="date" name="data_nascimento" id="data_nascimento">
+        <input [(ngModel)]="cliente.data_nascimento" [formControl]="data_nascimento" matInput type="date" name="data_nascimento" id="data_nascimento">
         <mat-icon matSuffix>calendar_month</mat-icon>
       </mat-form-field>
 		</div>
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Usuário Atual {{profissional.usuario}}</mat-label>
-      <mat-select [(ngModel)]="profissional.id_usuario" name="usuario" [formControl]="usuario" required>
-        <mat-option *ngFor="let user of usuarios" value="{{user.id_usuario}}">{{ user.usuario }}</mat-option>
+      <mat-label>Plano Atual {{cliente.plano}}</mat-label>
+      <mat-select [(ngModel)]="cliente.id_plano" name="usuario" [formControl]="plano" required>
+        <mat-option *ngFor="let plan of planos" value="{{plan.id_plano}}">{{ plan.descricao }}</mat-option>
       </mat-select>
-      <mat-icon matSuffix>account_circle</mat-icon>
+      <mat-icon matSuffix>redeem</mat-icon>
     </mat-form-field>
+
 	</form>
+
 	<div class="button">
-		<button [disabled]="!validaCampos()" (click)="update()" class="mat-elevation-z4" mat-raised-button color="primary">Atualizar</button>
-		<button routerLink="../../" class="mat-elevation-z4" mat-raised-button color="warn">Cancelar</button>
+		<button [disabled]="!validaCampos()" (click)="update()" class="mat-elevation-z4" mat-raised-button color="primary">Salvar</button>
+		<button routerLink="../" class="mat-elevation-z4" mat-raised-button color="warn">Cancelar</button>
 	</div>
 </div>

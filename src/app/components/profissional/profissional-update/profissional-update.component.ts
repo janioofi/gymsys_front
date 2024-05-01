@@ -73,12 +73,12 @@ export class ProfissionalUpdateComponent {
   data_nascimento: FormControl = new FormControl(null, Validators.required);
   data_admissao: FormControl = new FormControl(null, Validators.required);
 
-  findById(){
+  findById(): void{
     this.service.findById(this.profissional.id_profissional).subscribe(response => {
       this.profissional = response;
-      this.usuarioService.findById(this.profissional.id_usuario).subscribe(res => {
-        this.profissional.usuario = res.id_usuario;
-      })
+      console.log(this.profissional)
+    }, ex => {
+      this.toastr.error(ex.error.error)
     })
   }
 
@@ -101,14 +101,11 @@ export class ProfissionalUpdateComponent {
     );
   }
 
-
   findAllUsuarios(){
     this.usuarioService.findAll().pipe().subscribe(response => {
       this.usuarios = response;
     });
   }
-
-
 
   validaCampos(): boolean {
     return (this.usuario.valid && this.nome.valid && this.sobrenome.valid && this.cpf.valid && this.email.valid && this.data_nascimento.valid);
