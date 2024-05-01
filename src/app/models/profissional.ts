@@ -6,5 +6,6 @@ export interface Profissional{
   email: String,
   data_nascimento: String,
   data_admissao: String,
-  usuario: String
+  usuario: String,
+  id_usuario?: any
 }

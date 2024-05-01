@@ -10,6 +10,7 @@ import { UsuarioUpdateComponent } from './components/usuario/usuario-update/usua
 import { ProfissionalListComponent } from './components/profissional/profissional-list/profissional-list.component';
 import { ProfissionalCreateComponent } from './components/profissional/profissional-create/profissional-create.component';
 import { ProfissionalDeleteComponent } from './components/profissional/profissional-delete/profissional-delete.component';
+import { ProfissionalUpdateComponent } from './components/profissional/profissional-update/profissional-update.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path:'profissionais', component: ProfissionalListComponent},
     {path:'profissionais/create', component: ProfissionalCreateComponent},
     {path:'profissionais/delete/:id', component: ProfissionalDeleteComponent},
+    {path:'profissionais/update/:id', component: ProfissionalUpdateComponent},
 
   ]}
 ]
