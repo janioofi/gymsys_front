@@ -60,7 +60,7 @@
 		</div>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>Selecione um Usuário</mat-label>
-      <mat-select [(ngModel)]="profissional.usuario" name="usuario" [formControl]="usuario" required>
+      <mat-select [(ngModel)]="profissional.id_usuario" name="usuario" [formControl]="usuario" required>
         <mat-option *ngFor="let u of usuarios" value="{{u.id_usuario}}">{{ u.usuario }}</mat-option>
       </mat-select>
       <mat-icon matSuffix>account_circle</mat-icon>

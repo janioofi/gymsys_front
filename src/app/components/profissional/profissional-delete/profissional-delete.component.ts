@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Profissional } from '../../../models/profissional';
 import { ProfissionalService } from '../../../services/profissional.service';
 import { ToastrService } from 'ngx-toastr';
@@ -35,7 +35,7 @@ import { UsuarioService } from '../../../services/usuario.service';
   styleUrl: './profissional-delete.component.css',
   providers: [provideNgxMask()]
 })
-export class ProfissionalDeleteComponent {
+export class ProfissionalDeleteComponent implements OnInit{
 
   profissional : Profissional = {
     id_profissional: "",

@@ -46,7 +46,8 @@ export class ProfissionalCreateComponent implements OnInit{
     email: "",
     data_nascimento: "",
     data_admissao: "",
-    usuario: ""
+    usuario: "",
+    id_usuario: ""
   }
 
   usuarios: Usuario[] = [];
