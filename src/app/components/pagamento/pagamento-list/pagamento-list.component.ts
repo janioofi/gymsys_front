@@ -1,17 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Cliente } from '../../../models/cliente';
+import { Component, ViewChild } from '@angular/core';
+import { Pagamento } from '../../../models/pagamento';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ClienteService } from '../../../services/cliente.service';
+import { PagamentoService } from '../../../services/pagamento.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-cliente-list',
+  selector: 'app-pagamento-list',
   standalone: true,
   imports: [
     MatTableModule,
@@ -23,18 +24,19 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     RouterLink
   ],
-  templateUrl: './cliente-list.component.html',
-  styleUrl: './cliente-list.component.css'
+  templateUrl: './pagamento-list.component.html',
+  styleUrl: './pagamento-list.component.css'
 })
-export class ClienteListComponent implements OnInit{
-  ELEMENT_DATA: Cliente[] = []
+export class PagamentoListComponent {
 
-  displayedColumns: string[] = ['id_cliente', 'nome', 'sobrenome', 'apelido','cpf', 'email', 'data_nascimento', 'plano','acoes'];
-  dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
+  ELEMENT_DATA: Pagamento[] = []
+
+  displayedColumns: string[] = ['id_pagamento', 'cliente', 'data_pagamento', 'forma_pagamento', 'valor','acoes'];
+  dataSource = new MatTableDataSource<Pagamento>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service:  ClienteService){}
+  constructor(private service:  PagamentoService){}
 
   ngOnInit(): void {
     this.findAll();
@@ -43,7 +45,7 @@ export class ClienteListComponent implements OnInit{
   findAll(){
     this.service.findAll().pipe().subscribe(response => {
       this.ELEMENT_DATA = response;
-      this.dataSource = new MatTableDataSource<Cliente>(response)
+      this.dataSource = new MatTableDataSource<Pagamento>(response)
       this.dataSource.paginator = this.paginator;
     });
 
