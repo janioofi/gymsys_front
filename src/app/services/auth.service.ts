@@ -19,8 +19,9 @@ export class AuthService {
     return this.http.post(`${API_CONFIG.baseUrl}/login`, login);
   }
 
-  successFullLogin(authToken: string){
+  successFullLogin(authToken: string, login: string){
     localStorage.setItem('token', authToken)
+    localStorage.setItem('usuario', login)
   }
 
   isAuthenticated(){

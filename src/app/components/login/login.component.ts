@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
   logar() {
     this.service.authenticate(this.login).pipe().subscribe(res => {
       let token = JSON.parse(JSON.stringify(res)).token
-      this.service.successFullLogin(token)
+      this.service.successFullLogin(token, this.login.usuario)
       this.router.navigate(['']);
     }, ((err) => {
       console.log(err.status);

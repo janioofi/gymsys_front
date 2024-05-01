@@ -23,10 +23,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NavComponent implements OnInit{
 
+  login: String = localStorage.getItem('usuario')
+
   constructor(private router: Router, private authService: AuthService, private toast: ToastrService){}
 
   ngOnInit(): void{
-    this.router.navigate(['acessos'])
+    this.router.navigate(['planos'])
   }
 
   logout(){
@@ -34,5 +36,7 @@ export class NavComponent implements OnInit{
     this.authService.logout();
     this.toast.info("Logout realizado com sucesso", "Logout", {timeOut: 10000})
   }
+
+
   showFiller = false;
 }
