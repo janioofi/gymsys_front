@@ -16,6 +16,7 @@ import { PlanoCreateComponent } from './components/plano/plano-create/plano-crea
 import { PlanoDeleteComponent } from './components/plano/plano-delete/plano-delete.component';
 import { PlanoUpdateComponent } from './components/plano/plano-update/plano-update.component';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -38,7 +39,8 @@ export const routes: Routes = [
     {path: 'planos/delete/:id', component: PlanoDeleteComponent},
     {path: 'planos/update/:id', component: PlanoUpdateComponent},
 
-    {path: 'clientes', component: ClienteListComponent}
+    {path: 'clientes', component: ClienteListComponent},
+    {path: 'clientes/create', component: ClienteCreateComponent},
 
   ]}
 ]
