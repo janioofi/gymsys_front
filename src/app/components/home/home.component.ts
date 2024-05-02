@@ -31,7 +31,6 @@ import { CommonModule, JsonPipe } from '@angular/common';
     RouterLink,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule,
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
@@ -44,9 +43,8 @@ import { CommonModule, JsonPipe } from '@angular/common';
   ]
 })
 export class HomeComponent implements OnInit{
-  
+
   httpClient = inject(HttpClient)
-  date = new FormControl();
   option = false;
   data_inicio = "";
   data_final = "";

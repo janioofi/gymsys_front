@@ -1,7 +1,7 @@
 import { Pagamento } from './../models/pagamento';
 import { Injectable } from '@angular/core';
 import { API_CONFIG } from '../config/api.config';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,4 +28,12 @@ export class PagamentoService {
   update(pagamento: Pagamento): Observable<Pagamento>{
     return this.http.put<Pagamento>(`${ this.url }/${pagamento.id_pagamento}`, pagamento);
   }
+
+  acessosPorPeriodo(data_inicio: string, data_final: string){
+    let params = new HttpParams()
+    .set('data_inicio', data_inicio)
+    .set('data_final', data_final);
+    return this.http.get<Pagamento[]>(`${this.url}/periodo`, {params});
+  }
+
 }

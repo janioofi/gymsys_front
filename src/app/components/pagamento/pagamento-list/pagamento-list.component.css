@@ -42,3 +42,18 @@ th {
 button{
   font-size: 0.7rem;
 }
+
+.periodo{
+  align-items: center;
+  justify-content: start;
+}
+
+.periodo mat-form-field{
+  width: 25%;
+  margin: 0 1rem;
+}
+
+.periodo button{
+  height: 3rem;
+  width: 20%;
+}

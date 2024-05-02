@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Pagamento } from '../../../models/pagamento';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { ClienteService } from '../../../services/cliente.service';
 import { PagamentoService } from '../../../services/pagamento.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -10,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pagamento-list',
@@ -22,12 +23,20 @@ import { RouterLink } from '@angular/router';
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    FormsModule
+
   ],
   templateUrl: './pagamento-list.component.html',
-  styleUrl: './pagamento-list.component.css'
+  styleUrl: './pagamento-list.component.css',
+  providers: [
+    provideNativeDateAdapter()
+  ]
 })
 export class PagamentoListComponent {
+
+  data_inicio = "";
+  data_final = "";
 
   ELEMENT_DATA: Pagamento[] = []
 
@@ -49,6 +58,14 @@ export class PagamentoListComponent {
       this.dataSource.paginator = this.paginator;
     });
 
+  }
+
+  acessosPorPeriodo(){
+    this.service.acessosPorPeriodo(this.data_inicio, this.data_final).pipe().subscribe(response => {
+      this.ELEMENT_DATA = response;
+      this.dataSource = new MatTableDataSource<Pagamento>(response)
+      this.dataSource.paginator = this.paginator;
+    });
   }
 
   applyFilter(event: Event) {
