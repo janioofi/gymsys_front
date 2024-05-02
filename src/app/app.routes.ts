@@ -20,6 +20,7 @@ import { ClienteCreateComponent } from './components/cliente/cliente-create/clie
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { PagamentoListComponent } from './components/pagamento/pagamento-list/pagamento-list.component';
+import { PagamentoCreateComponent } from './components/pagamento/pagamento-create/pagamento-create.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -47,7 +48,8 @@ export const routes: Routes = [
     {path: 'clientes/delete/:id', component: ClienteDeleteComponent},
     {path: 'clientes/update/:id', component: ClienteUpdateComponent},
 
-    {path: 'pagamentos', component: PagamentoListComponent}
+    {path: 'pagamentos', component: PagamentoListComponent},
+    {path: 'pagamentos/create', component: PagamentoCreateComponent},
 
   ]}
 ]
