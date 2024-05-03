@@ -1,1 +1,81 @@
-<p>pagamento-create works!</p>
+<div class="container mat-elevation-z8">
+  <h1 class="full-width">Registrando Pagamento</h1>
+
+  <form class="form">
+    <div class="agrupado">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Selecione a forma de pagamento</mat-label>
+        <mat-select
+          [(ngModel)]="pagamento.forma_pagamento"
+          name="forma_pagamento"
+          [formControl]="forma_pagamento"
+          required
+        >
+          <mat-option value="PIX">Pix</mat-option>
+          <mat-option value="DEBITO">Débito</mat-option>
+          <mat-option value="CREDITO">Crédito</mat-option>
+          <mat-option value="DINHEIRO">Dinheiro</mat-option>
+        </mat-select>
+        <mat-icon matSuffix>payments</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Valor</mat-label>
+        <input
+          [(ngModel)]="pagamento.valor"
+          name="valor"
+          [formControl]="valor"
+          type="number"
+          required
+          matInput
+          placeholder="Ex. 90"
+        />
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="agrupado">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input
+          [(ngModel)]="cpf"
+          name="nome"
+          type="number"
+          mask="00000000000"
+          required="true"
+          matInput
+          placeholder="Ex. 22171311177"
+        />
+        <mat-icon matSuffix>pin</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Observação</mat-label>
+        <input
+          [(ngModel)]="pagamento.observacao"
+          name="observacao"
+          matInput
+          placeholder="Ex. Pagamento atrasado"
+        />
+        <mat-icon matSuffix>attach_money</mat-icon>
+      </mat-form-field>
+    </div>
+  </form>
+  <div class="button">
+    <button
+      (click)="ativar()"
+      class="mat-elevation-z4"
+      mat-raised-button
+      color="primary"
+    >
+      Registrar
+    </button>
+    <button
+      routerLink="../"
+      class="mat-elevation-z4"
+      mat-raised-button
+      color="warn"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>

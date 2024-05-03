@@ -40,7 +40,7 @@ export class PagamentoListComponent {
 
   ELEMENT_DATA: Pagamento[] = []
 
-  displayedColumns: string[] = ['id_pagamento', 'cliente', 'data_pagamento', 'forma_pagamento', 'valor','acoes'];
+  displayedColumns: string[] = ['id_pagamento', 'cliente', 'data_pagamento', 'forma_pagamento', 'plano','valor', 'observacao','acoes'];
   dataSource = new MatTableDataSource<Pagamento>(this.ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;

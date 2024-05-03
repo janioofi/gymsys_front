@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { API_CONFIG } from '../config/api.config';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Cliente } from '../models/cliente';
 import { Observable } from 'rxjs';
 
@@ -31,5 +31,11 @@ export class ClienteService {
 
   delete(id: any): Observable<Cliente>{
     return this.http.delete<Cliente>(`${ this.url }/${id}`);
+  }
+
+  findByCPF(cpf: any){
+    let params = new HttpParams()
+    .set('cpf', cpf)
+    return this.http.get<Cliente>(`${this.url}/cpf`, {params});
   }
 }

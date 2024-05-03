@@ -62,6 +62,7 @@ export class UsuarioUpdateComponent {
     this.service.findById(this.usuarioModel.id_usuario).subscribe(response => {
       response.perfis = [];
       this.usuarioModel = response;
+      this.usuarioModel.senha = '';
     })
   }
 
