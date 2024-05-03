@@ -42,6 +42,7 @@ export class PagamentoUpdateComponent implements OnInit{
     observacao: '',
     valor: '',
     data_pagamento: '',
+    data_atualizacao: ''
   };
 
   cliente: Cliente = {
@@ -73,16 +74,21 @@ export class PagamentoUpdateComponent implements OnInit{
     this.findById();
   }
 
-  ativar(): void {
-    this.findByCPF();
-  }
-
   findById(): void{
     this.service.findById(this.pagamento.id_pagamento).subscribe(response => {
       this.pagamento = response;
-    }, ex => {
-      this.toastr.error(ex.error.error)
+      this.findByIdCliente(this.pagamento.id_cliente)
     })
+  }
+
+  findByIdCliente(id_cliente: any): void {
+    this.clienteService.findById(id_cliente).subscribe(
+      (response) => {
+        this.cliente = response;
+        this.pagamento.id_cliente = this.cliente.id_cliente;
+        this.pagamento.cliente = this.cliente.nome;
+      }
+    );
   }
 
   update(): void {
@@ -98,28 +104,6 @@ export class PagamentoUpdateComponent implements OnInit{
             this.toastr.error(element.message);
           })
         }else{
-          this.toastr.error(ex.error);
-        }
-      }
-    );
-  }
-
-  findByCPF(): void {
-    this.clienteService.findByCPF(this.cpf).subscribe(
-      (response) => {
-        this.cliente = response;
-        this.pagamento.id_cliente = this.cliente.id_cliente;
-        this.pagamento.cliente = this.cliente.nome;
-        console.log(this.pagamento)
-        this.update();
-      },
-      (ex) => {
-        console.log(ex);
-        if (ex.error.errors) {
-          ex.error.errors.forEach((element) => {
-            this.toastr.error(element.message);
-          });
-        } else {
           this.toastr.error(ex.error);
         }
       }

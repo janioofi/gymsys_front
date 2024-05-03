@@ -4,7 +4,8 @@ export interface Pagamento{
   cliente: string,
   id_cliente?: any,
   plano: string,
-  observacao: string
-  data_pagamento: any
+  observacao: string,
+  data_pagamento: any,
+  data_atualizacao: any
   valor: any
 }

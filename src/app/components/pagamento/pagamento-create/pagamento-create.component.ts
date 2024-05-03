@@ -47,6 +47,7 @@ export class PagamentoCreateComponent {
     observacao: '',
     valor: '',
     data_pagamento: '',
+    data_atualizacao: ''
   };
 
   cliente: Cliente = {
