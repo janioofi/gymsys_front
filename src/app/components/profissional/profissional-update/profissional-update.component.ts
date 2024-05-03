@@ -76,7 +76,6 @@ export class ProfissionalUpdateComponent {
   findById(): void{
     this.service.findById(this.profissional.id_profissional).subscribe(response => {
       this.profissional = response;
-      console.log(this.profissional)
     }, ex => {
       this.toastr.error(ex.error.error)
     })

@@ -1,16 +1,11 @@
-import { Cliente } from './../../../models/cliente';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pagamento } from '../../../models/pagamento';
+import { Cliente } from '../../../models/cliente';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PagamentoService } from '../../../services/pagamento.service';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ClienteService } from '../../../services/cliente.service';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -20,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
-  selector: 'app-pagamento-create',
+  selector: 'app-pagamento-update',
   standalone: true,
   imports: [
     MatCheckboxModule,
@@ -34,10 +29,10 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     MatSelectModule
   ],
-  templateUrl: './pagamento-create.component.html',
-  styleUrl: './pagamento-create.component.css',
+  templateUrl: './pagamento-update.component.html',
+  styleUrl: './pagamento-update.component.css'
 })
-export class PagamentoCreateComponent {
+export class PagamentoUpdateComponent implements OnInit{
   pagamento: Pagamento = {
     id_pagamento: '',
     forma_pagamento: '',
@@ -69,26 +64,40 @@ export class PagamentoCreateComponent {
     private service: PagamentoService,
     private router: Router,
     private toastr: ToastrService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private route: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    this.pagamento.id_pagamento = this.route.snapshot.paramMap.get('id');
+    this.findById();
+  }
 
   ativar(): void {
     this.findByCPF();
   }
 
-  create(): void {
-    this.service.create(this.pagamento).subscribe(
+  findById(): void{
+    this.service.findById(this.pagamento.id_pagamento).subscribe(response => {
+      this.pagamento = response;
+    }, ex => {
+      this.toastr.error(ex.error.error)
+    })
+  }
+
+  update(): void {
+    this.service.update(this.pagamento).subscribe(
       () => {
-        this.toastr.success('Pagamento registrado com sucesso', 'Registrado');
-        this.router.navigate(['pagamentos']);
+        this.toastr.success("Pagamento atualizado com sucesso", "Atualização");
+        this.router.navigate(['pagamentos'])
       },
       (ex) => {
         console.log(ex);
-        if (ex.error.errors) {
-          ex.error.errors.forEach((element) => {
+        if(ex.error.errors){
+          ex.error.errors.forEach(element => {
             this.toastr.error(element.message);
-          });
-        } else {
+          })
+        }else{
           this.toastr.error(ex.error);
         }
       }
@@ -101,7 +110,8 @@ export class PagamentoCreateComponent {
         this.cliente = response;
         this.pagamento.id_cliente = this.cliente.id_cliente;
         this.pagamento.cliente = this.cliente.nome;
-        this.create();
+        console.log(this.pagamento)
+        this.update();
       },
       (ex) => {
         console.log(ex);

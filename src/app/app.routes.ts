@@ -21,6 +21,7 @@ import { ClienteDeleteComponent } from './components/cliente/cliente-delete/clie
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { PagamentoListComponent } from './components/pagamento/pagamento-list/pagamento-list.component';
 import { PagamentoCreateComponent } from './components/pagamento/pagamento-create/pagamento-create.component';
+import { PagamentoUpdateComponent } from './components/pagamento/pagamento-update/pagamento-update.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -50,6 +51,7 @@ export const routes: Routes = [
 
     {path: 'pagamentos', component: PagamentoListComponent},
     {path: 'pagamentos/create', component: PagamentoCreateComponent},
+    {path: 'pagamentos/update/:id', component: PagamentoUpdateComponent},
 
   ]}
 ]
