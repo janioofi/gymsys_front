@@ -14,6 +14,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { MatSelectModule } from '@angular/material/select';
 import { Usuario } from '../../../models/usuario';
 import { UsuarioService } from '../../../services/usuario.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profissional-delete',
@@ -55,10 +56,12 @@ export class ProfissionalDeleteComponent implements OnInit{
     private toastr: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Deletando Profissional")
     this.profissional.id_profissional = this.route.snapshot.paramMap.get('id')
     this.findById();
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../models/usuario';
 import { UsuarioService } from '../../../services/usuario.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-update',
@@ -26,7 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './usuario-update.component.html',
   styleUrl: './usuario-update.component.css'
 })
-export class UsuarioUpdateComponent {
+export class UsuarioUpdateComponent implements OnInit{
 
   usuarioModel : Usuario = {
     id_usuario: "",
@@ -42,10 +43,12 @@ export class UsuarioUpdateComponent {
     private service: UsuarioService,
     private toastr: ToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Atualizando Usuário")
     this.usuarioModel.id_usuario = this.route.snapshot.paramMap.get('id')
     this.findById();
   }

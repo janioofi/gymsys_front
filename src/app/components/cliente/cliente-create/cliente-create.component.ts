@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-create',
@@ -62,10 +63,12 @@ export class ClienteCreateComponent implements OnInit{
     private service: ClienteService,
     private router: Router,
     private toastr: ToastrService,
-    private planoService: PlanoService
+    private planoService: PlanoService,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Criando Cliente")
     this.findAllPlanos();
   }
 
@@ -76,7 +79,6 @@ export class ClienteCreateComponent implements OnInit{
         this.router.navigate(['clientes'])
       },
       (ex) => {
-        console.log(ex);
         if(ex.error.errors){
           ex.error.errors.forEach(element => {
             this.toastr.error(element.message);

@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
   constructor(
     private toastr: ToastrService,
     private service: AuthService,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) {}
 
   ngOnInit(): void {
+    this.title.setTitle("Login")
   }
 
   logar() {

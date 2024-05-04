@@ -9,6 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-list',
@@ -28,7 +29,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 })
 export class UsuarioListComponent implements OnInit {
 
-  constructor(private service: UsuarioService){}
+  constructor(private service: UsuarioService, private title: Title){}
 
   ELEMENT_DATA: Usuario[] = []
 
@@ -37,13 +38,14 @@ export class UsuarioListComponent implements OnInit {
   displayedColumns: string[] = ['id_usuario', 'usuario',  'perfis', 'acoes'];
   dataSource = new MatTableDataSource<Usuario>(this.ELEMENT_DATA);
 
+  ngOnInit(): void {
+    this.title.setTitle("Usuários")
+    this.findAll()
+  }
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  ngOnInit(): void {
-    this.findAll()
   }
 
   findAll(){

@@ -14,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from '../../../services/usuario.service';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -56,10 +57,12 @@ export class ProfissionalCreateComponent implements OnInit{
     private service: ProfissionalService,
     private router: Router,
     private toastr: ToastrService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Criando Profissional")
     this.findAllUsuarios();
   }
 

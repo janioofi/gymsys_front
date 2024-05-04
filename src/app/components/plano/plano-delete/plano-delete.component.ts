@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-plano-delete',
@@ -44,10 +45,12 @@ export class PlanoDeleteComponent implements OnInit{
     private service: PlanoService,
     private toastr: ToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Deletando Plano")
     this.plano.id_plano = this.route.snapshot.paramMap.get('id')
     this.findById();
   }

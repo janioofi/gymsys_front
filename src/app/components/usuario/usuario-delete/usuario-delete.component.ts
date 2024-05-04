@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-delete',
@@ -39,10 +40,12 @@ export class UsuarioDeleteComponent implements OnInit {
     private service: UsuarioService,
     private toastr: ToastrService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Deletando Usuário")
     this.usuarioModel.id_usuario = this.route.snapshot.paramMap.get('id')
     this.findById();
   }

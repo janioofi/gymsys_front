@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-plano-update',
@@ -45,7 +46,8 @@ export class PlanoUpdateComponent implements OnInit {
     private service: PlanoService,
     private router: Router,
     private toastr: ToastrService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ){}
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
@@ -54,6 +56,7 @@ export class PlanoUpdateComponent implements OnInit {
   quantidadeMeses: FormControl = new FormControl(null, [Validators.required, Validators.max(24)]);
 
   ngOnInit(): void {
+    this.title.setTitle("Atualizando Plano")
     this.plano.id_plano = this.route.snapshot.paramMap.get('id');
     this.findById();
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProfissionalService } from '../../../services/profissional.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profissional-update',
@@ -35,7 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './profissional-update.component.html',
   styleUrl: './profissional-update.component.css'
 })
-export class ProfissionalUpdateComponent {
+export class ProfissionalUpdateComponent implements OnInit{
 
   profissional : Profissional = {
     id_profissional: "",
@@ -56,10 +57,12 @@ export class ProfissionalUpdateComponent {
     private router: Router,
     private toastr: ToastrService,
     private usuarioService: UsuarioService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Atualizando Profissional")
     this.profissional.id_profissional = this.route.snapshot.paramMap.get('id');
     this.findById();
     this.findAllUsuarios();

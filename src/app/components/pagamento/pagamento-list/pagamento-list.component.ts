@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Pagamento } from '../../../models/pagamento';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -11,6 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RouterLink } from '@angular/router';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pagamento-list',
@@ -33,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     provideNativeDateAdapter()
   ]
 })
-export class PagamentoListComponent {
+export class PagamentoListComponent implements OnInit{
 
   data_inicio = "";
   data_final = "";
@@ -45,9 +46,10 @@ export class PagamentoListComponent {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service:  PagamentoService){}
+  constructor(private service:  PagamentoService, private title: Title){}
 
   ngOnInit(): void {
+    this.title.setTitle("Pagamentos")
     this.findAll();
   }
 

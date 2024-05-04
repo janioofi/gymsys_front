@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Plano } from '../../../models/plano';
 import { PlanoService } from '../../../services/plano.service';
 import { Router, RouterLink } from '@angular/router';
@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-plano-create',
@@ -32,7 +33,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './plano-create.component.html',
   styleUrl: './plano-create.component.css',
 })
-export class PlanoCreateComponent {
+export class PlanoCreateComponent implements OnInit{
   plano: Plano = {
     id_plano: '',
     descricao: '',
@@ -44,13 +45,17 @@ export class PlanoCreateComponent {
   constructor(
     private service: PlanoService,
     private router: Router,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private title: Title) {}
 
   descricao: FormControl = new FormControl(null, [Validators.required]);
   preco: FormControl = new FormControl(null, [Validators.required, Validators.max(1400)]);
   vigencia: FormControl = new FormControl(null, [Validators.required]);
   quantidadeMeses: FormControl = new FormControl(null, [Validators.required, Validators.max(24)]);
+
+  ngOnInit(): void {
+    this.title.setTitle("Criando Plano")
+  }
 
   create(): void {
     this.service.create(this.plano).subscribe(

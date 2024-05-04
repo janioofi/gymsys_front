@@ -1,5 +1,5 @@
 import { Cliente } from './../../../models/cliente';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Pagamento } from '../../../models/pagamento';
 import { PagamentoService } from '../../../services/pagamento.service';
 import { Router, RouterLink } from '@angular/router';
@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pagamento-create',
@@ -32,12 +33,12 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   templateUrl: './pagamento-create.component.html',
   styleUrl: './pagamento-create.component.css',
 })
-export class PagamentoCreateComponent {
+export class PagamentoCreateComponent implements OnInit {
   pagamento: Pagamento = {
     id_pagamento: '',
     forma_pagamento: '',
@@ -47,7 +48,7 @@ export class PagamentoCreateComponent {
     observacao: '',
     valor: '',
     data_pagamento: '',
-    data_atualizacao: ''
+    data_atualizacao: '',
   };
 
   cliente: Cliente = {
@@ -70,8 +71,13 @@ export class PagamentoCreateComponent {
     private service: PagamentoService,
     private router: Router,
     private toastr: ToastrService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private title: Title
   ) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('Criando Pagamento');
+  }
 
   ativar(): void {
     this.findByCPF();

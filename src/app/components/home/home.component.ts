@@ -15,6 +15,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {DateAdapter, provideNativeDateAdapter} from '@angular/material/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, JsonPipe } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -56,10 +57,11 @@ export class HomeComponent implements OnInit{
   displayedColumns: string[] = ['cliente', 'cpf', 'data_registro', 'tipoRegistro'];
   dataSource = new MatTableDataSource<Acesso>(this.ELEMENT_DATA);
 
-  constructor(private service: AcessoService){}
+  constructor(private service: AcessoService, private title: Title){}
 
   ngOnInit(){
-    this.treinandoAgora()
+    this.title.setTitle("Registros");
+    this.acessosDoDia();
   }
 
   treinandoAgora(){

@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-update',
@@ -63,10 +64,12 @@ export class ClienteUpdateComponent implements OnInit{
     private toastr: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
-    private planoService: PlanoService
+    private planoService: PlanoService,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Atualizando Cliente")
     this.cliente.id_cliente = this.route.snapshot.paramMap.get('id');
     this.findById();
     this.findAllPlanos();

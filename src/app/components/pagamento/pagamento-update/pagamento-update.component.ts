@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pagamento-update',
@@ -66,10 +67,12 @@ export class PagamentoUpdateComponent implements OnInit{
     private router: Router,
     private toastr: ToastrService,
     private clienteService: ClienteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ) {}
 
   ngOnInit(): void {
+    this.title.setTitle("Atualizando Pagamento")
     this.pagamento.id_pagamento = this.route.snapshot.paramMap.get('id');
     this.findById();
   }

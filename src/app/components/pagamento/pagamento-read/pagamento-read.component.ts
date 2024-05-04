@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pagamento-read',
@@ -61,10 +62,12 @@ export class PagamentoReadComponent implements OnInit{
   constructor(
     private service: PagamentoService,
     private clienteService: ClienteService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title
   ) {}
 
   ngOnInit(): void {
+    this.title.setTitle("Leitura de Pagamento")
     this.pagamento.id_pagamento = this.route.snapshot.paramMap.get('id');
     this.findById();
   }

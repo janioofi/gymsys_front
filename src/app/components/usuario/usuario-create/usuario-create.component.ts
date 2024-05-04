@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../models/usuario';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-usuario-create',
@@ -26,7 +27,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   templateUrl: './usuario-create.component.html',
   styleUrl: './usuario-create.component.css'
 })
-export class UsuarioCreateComponent {
+export class UsuarioCreateComponent implements OnInit{
 
   usuarioModel : Usuario = {
     id_usuario: "",
@@ -41,8 +42,13 @@ export class UsuarioCreateComponent {
   constructor(
     private service: UsuarioService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    private title: Title
   ){}
+
+  ngOnInit(): void {
+    this.title.setTitle("Criando Usuário")
+  }
 
   addPerfil(perfil: any): void{
     if(this.usuarioModel.perfis.includes(perfil)){

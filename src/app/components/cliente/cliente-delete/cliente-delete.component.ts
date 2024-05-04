@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-delete',
@@ -56,10 +57,12 @@ export class ClienteDeleteComponent implements OnInit{
     private toastr: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
-    private planoService: PlanoService
+    private planoService: PlanoService,
+    private title: Title
   ){}
 
   ngOnInit(): void {
+    this.title.setTitle("Deletendo Cliente")
     this.cliente.id_cliente = this.route.snapshot.paramMap.get('id')
     this.findById();
   }

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cliente-list',
@@ -34,9 +35,10 @@ export class ClienteListComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service:  ClienteService){}
+  constructor(private service:  ClienteService, private title: Title){}
 
   ngOnInit(): void {
+    this.title.setTitle("Clientes")
     this.findAll();
   }
 
