@@ -76,6 +76,7 @@ export class PagamentoCreateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.cpf)
     this.title.setTitle('Criando Pagamento');
   }
 
@@ -103,6 +104,7 @@ export class PagamentoCreateComponent implements OnInit {
   }
 
   findByCPF(): void {
+    console.log(this.cpf)
     this.clienteService.findByCPF(this.cpf).subscribe(
       (response) => {
         this.cliente = response;

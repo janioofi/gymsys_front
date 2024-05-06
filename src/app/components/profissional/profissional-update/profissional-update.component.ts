@@ -87,6 +87,7 @@ export class ProfissionalUpdateComponent implements OnInit{
   update(): void {
     this.service.update(this.profissional).subscribe(
       () => {
+        console.log(this.profissional)
         this.toastr.success("Profissional atualizado com sucesso", "Atualização");
         this.router.navigate(['profissionais'])
       },
@@ -110,7 +111,7 @@ export class ProfissionalUpdateComponent implements OnInit{
   }
 
   validaCampos(): boolean {
-    return (this.usuario.valid && this.nome.valid && this.sobrenome.valid && this.cpf.valid && this.email.valid && this.data_nascimento.valid);
+    return (this.usuario.valid && this.nome.valid && this.sobrenome.valid && this.cpf.valid && this.email.valid && this.data_nascimento.valid && this.data_admissao.valid);
   }
 
 }
